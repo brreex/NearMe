@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= message %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= message %></h1>
+    <form action="http://localhost:3000/addlocation" method="POST">
+        <ul>
+            <li>
+                <label for="name">Name: </label><br>
+                <input type="text" name="name" id="name">
+            </li>
+            <li>
+                <label for="category">Category</label><br>
+                <select name="category">
+                    <option>--select--</option>
+                    <option>Hostpital</option>
+                    <option>Restaurant</option>
+                    <option>Park</option>
+                    <option>Other</option>
+                </select>
+            </li>
+            <li>
+                <label for="lat">Latitude</label><br>
+                <input type="text" name="lat" id="lat" placeholder="latitude">
+            </li>
+            <li>
+                <label for="long">Longitude</label><br>
+                <input type="text" name="long" id="long" placeholder="longitude">
+            </li>
+            <li>
+                <input type="submit" value="Add Location">
+            </li>
+        </ul>
+        <div class="output">
+            <label><%=result%></label>
+        </div>
+    </form>
+  </body>
+</html>
