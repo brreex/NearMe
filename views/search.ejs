@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        navigator.geolocation.getCurrentPosition(success, fail);
+        function success(position) {
+            $('#lat').val(position.coords.latitude);
+            $('#long').val(position.coords.longitude);
+        }
+        function fail(message) {
+            $('.output').val(message);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>
+        <%= message %>
+    </h1>
+    <form action="http://localhost:3000/search" method="GET">
+        <ul>
+            <li>
+                <label for="category">Category</label><br>
+                <select name="category">
+                    <option>--select--</option>
+                    <option>Hostpital</option>
+                    <option>Restaurant</option>
+                    <option>Park</option>
+                    <option>Other</option>
+                </select>
+            </li>
+            <li>
+                <input type="hidden" name="lat" id="lat" placeholder="latitude">
+            </li>
+            <li>
+                <input type="hidden" name="long" id="long" placeholder="longitude">
+            </li>
+            <li>
+                <input type="submit" value="Search">
+            </li>
+        </ul>
+    </form>
+    <div class="output">
+        <h2>
+            <%=found%>
+        </h2>
+        <%result.forEach(function(data){ %>
+            <ul>
+                <li>Restaurant Name:
+                    <%= data.name%>
+                </li>
+                <li>Location :
+                    <%= data.category%>
+                </li>
+            </ul>
+            <% }); %>
+    </div>
+</body>
+</html>

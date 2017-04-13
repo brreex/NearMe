@@ -9,7 +9,7 @@ var mongo = require('mongoskin');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var addlocation = require('./routes/addlocation');
-
+var search = require('./routes/search');
 var app = express();
 
 // view engine setup
@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', addlocation);
 app.use('/addlocation',addlocation);
 app.use('/users', users);
-
+app.use('/search',search);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
