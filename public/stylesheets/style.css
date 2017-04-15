@@ -13,5 +13,8 @@ ul {
 ul li {
   margin-bottom: 10px;
 }
-
+ #map {
+    height: 400px;
+    width: 100%;
+}
 

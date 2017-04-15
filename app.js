@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongo = require('mongoskin');
 
+var map = require('./routes/map');
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 var addlocation = require('./routes/addlocation');
@@ -30,6 +32,8 @@ app.use('/', addlocation);
 app.use('/addlocation',addlocation);
 app.use('/users', users);
 app.use('/search',search);
+app.use('/map',map);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
